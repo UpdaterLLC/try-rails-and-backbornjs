@@ -41,6 +41,9 @@ gem 'spring',        group: :development
 group :development, :test do
   gem 'spring-commands-rspec'
   gem 'rspec-rails'
+
+  gem 'hirb'
+  gem 'hirb-unicode'
 end
 
 
