@@ -5,7 +5,7 @@ RSpec.describe ApplicationController, :type => :controller do
   describe '#bad_request' do
     controller do
       def index
-        ApplicationController.bad_request 'from stub action'
+        bad_request 'from stub action'
       end
     end
     it 'responds 400 format HTML' do
@@ -24,7 +24,7 @@ RSpec.describe ApplicationController, :type => :controller do
   describe '#not_found' do
     controller do
       def index
-        ApplicationController.not_found 'from stub action'
+        not_found 'from stub action'
       end
     end
     it 'responds 404 format HTML' do

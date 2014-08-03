@@ -3,11 +3,11 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  def self.bad_request(msg)
+  def bad_request(msg)
     msg.nil? and msg = ''
     raise ActionController::BadRequest.new(msg)
   end
-  def self.not_found(msg)
+  def not_found(msg)
     msg.nil? and msg = ''
     raise ActionController::RoutingError.new(msg)
   end
