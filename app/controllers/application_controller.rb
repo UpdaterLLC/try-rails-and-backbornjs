@@ -15,7 +15,10 @@ class ApplicationController < ActionController::Base
 
   rescue_from ActionController::BadRequest,     with: :render_400
   rescue_from ActiveRecord::RecordNotFound,     with: :render_400
+  rescue_from ActionController::UnknownFormat,  with: :render_400
+
   rescue_from ActionController::RoutingError,   with: :render_404
+
   # rescue_from Exception,                        with: :render_500
 
   def render_400(e = nil)
