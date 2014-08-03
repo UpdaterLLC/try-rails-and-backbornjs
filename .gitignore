@@ -27,3 +27,6 @@ config/secrets.yml
 
 # jetbrains IDE
 .idea
+
+# precompiled assets
+public/assets
