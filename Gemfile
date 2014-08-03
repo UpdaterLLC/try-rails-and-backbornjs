@@ -28,6 +28,7 @@ gem 'autoprefixer-rails'
 # backborn.js (rails-assets)
 gem 'rails-assets-lodash'
 gem 'rails-assets-backbone'
+gem 'pluggable_js', '~> 2.0.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
