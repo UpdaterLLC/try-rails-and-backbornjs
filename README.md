@@ -83,6 +83,7 @@ so we can create database.
 # How to run the test suite
 
     $ bundle exec rake spec
+    $ bundle exec rake spec:javascript
 
 # Services (job queues, cache servers, search engines, etc.)
 
