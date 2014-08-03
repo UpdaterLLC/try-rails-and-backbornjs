@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe TodosController, :type => :controller do
+  render_views
 
   describe 'GET index' do
     before do
