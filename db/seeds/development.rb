@@ -1,0 +1,1 @@
+(1..10).each { |i| FactoryGirl.create :todo }
