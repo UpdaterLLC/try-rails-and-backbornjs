@@ -12,7 +12,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer',  platforms: :ruby
+gem 'therubyracer',  platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -25,10 +25,18 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 
+# coffeescript
+#gem 'coffeelint-rails'
+
+# Page-specific javascript for Rails applications with the ability of passing data.
+gem 'pluggable_js', '~> 2.0.0'
+
 # backborn.js (rails-assets)
 gem 'rails-assets-lodash'
 gem 'rails-assets-backbone'
-gem 'pluggable_js', '~> 2.0.0'
+gem 'rails-assets-moment'
+gem 'rails-assets-moment-timezone'
+gem 'rails-assets-hogan'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -55,6 +63,9 @@ group :development, :test do
   gem 'hirb-unicode'
   gem 'better_errors'
   gem 'binding_of_caller'
+
+  gem 'coffee-rails-source-maps'
+  gem 'jasmine-rails'
 end
 
 
