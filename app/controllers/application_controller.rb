@@ -24,7 +24,10 @@ class ApplicationController < ActionController::Base
     if request.xhr?
       render json: { error: '400 error: '+(e ? e.message : '') }, status: 400
     else
-      render template: 'errors/error_400: '+(e ? e.message : ''), status: 400, layout: 'application', content_type: 'text/html'
+      respond_to do |format|
+        format.json { render json: { error: '400 error: '+(e ? e.message : '') }, status: 400 }
+        format.html { render template: 'errors/error_400: '+(e ? e.message : ''), status: 400, layout: 'application', content_type: 'text/html' }
+      end
     end
   end
 
@@ -34,7 +37,10 @@ class ApplicationController < ActionController::Base
     if request.xhr?
       render json: { error: '404 error: '+(e ? e.message : '') }, status: 404
     else
-      render template: 'errors/error_404: '+(e ? e.message : ''), status: 404, layout: 'application', content_type: 'text/html'
+      respond_to do |format|
+        format.json { render json: { error: '404 error: '+(e ? e.message : '') }, status: 404 }
+        format.html { render template: 'errors/error_404: '+(e ? e.message : ''), status: 404, layout: 'application', content_type: 'text/html' }
+      end
     end
   end
 
@@ -44,7 +50,10 @@ class ApplicationController < ActionController::Base
     if request.xhr?
       render json: { error: '500 error: '+(e ? e.message : '')  }, status: 500
     else
-      render template: 'errors/error_500: '+(e ? e.message : ''), status: 500, layout: 'application', content_type: 'text/html'
+      respond_to do |format|
+        format.json { render json: { error: '500 error: '+(e ? e.message : '') }, status: 500 }
+        format.html { render template: 'errors/error_500: '+(e ? e.message : ''), status: 500, layout: 'application', content_type: 'text/html' }
+      end
     end
   end
 end
