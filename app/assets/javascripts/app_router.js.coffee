@@ -8,7 +8,7 @@ t.Routers.AppRouter = Backbone.Router.extend
 
   initialize: (options) ->
     @layout = new t.Views.LayoutView(el: $("body"))
-    @todos = new t.Collections.TodoCollection()
+    @todos = new t.Collections.Todos()
     return
 
   todos_index: ->

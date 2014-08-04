@@ -2,21 +2,32 @@
 
 t = @Todos
 
-t.Views.Todos.Index = Backbone.View.extend
-  template: Templates.todos_index
+t.Views.Todos.Todo = Backbone.View.extend
+  tagName: "tr"
+  template: JST['todos/todo']
 
   initialize: (@options) ->
-#    @listenTo @collection, "reset", =>
-#      @render()
-#    @listenTo @collection, "add", =>
-#      @render()
-#    @listenTo @collection, "remove", =>
-#      @render()
+    return
+
+  render: ->
+    data = $.extend(@model.toJSON(), {});
+    $(@el).html(@template.render(data))
+    this
+
+
+t.Views.Todos.Index = Backbone.View.extend
+  tagName: "div",
+  template: JST['todos/index']
+
+  initialize: (@options) ->
+    @collection.on("reset", @render, @)
+    return
 
   render: ->
     @$el.html(@template.render({}))
-#    @collection.each (note) =>
-#      view = new t.Views.Todos.IndexItemView(model: note)
-#      @$(".todos").append(view.render().el)
-#    @$("#todo-menu")
+    if @collection.length != 0
+      @collection.each (todo) =>
+        v = new t.Views.Todos.Todo({ model: todo })
+        @$("#data-list").append(v.render().el)
+    $('#data-list').dataTable();
     this

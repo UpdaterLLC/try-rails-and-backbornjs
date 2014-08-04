@@ -1,1 +1,1 @@
-json.todos Todo.all
+json.array! Todo.all

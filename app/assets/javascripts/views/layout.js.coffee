@@ -9,3 +9,4 @@ t.Views.LayoutView = Backbone.View.extend
       @currentView.remove()
     @currentView = view
     @$(@viewContainer).html(view.render().el)
+    return

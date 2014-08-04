@@ -14,11 +14,14 @@ window.Todos =
     @router = new Todos.Routers.AppRouter()
     return
 
-window['todos#index'] = (data) ->
+#window['todos#index'] = (data) ->
+#  return
 
-window['todos#show'] = (data) ->
+#window['todos#show'] = (data) ->
+#  return
 
 $ ->
+  moment.locale('ja')
   window.Todos.init()
   Backbone.history.start(pushState: true)
   return
