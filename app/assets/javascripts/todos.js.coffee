@@ -5,20 +5,20 @@
 
 'use strict'
 
-@Todos =
+window.Todos =
   Models: {}
   Collections: {}
   Views: { Todos:{} }
   Routers: {}
   init: ->
     @router = new Todos.Routers.AppRouter()
-    Backbone.history.start(pushState: true)
+    return
 
 window['todos#index'] = (data) ->
-  # your code goes here
 
 window['todos#show'] = (data) ->
-  # and here
 
-$ =>
-  @Todos.init()
+$ ->
+  window.Todos.init()
+  Backbone.history.start(pushState: true)
+  return
