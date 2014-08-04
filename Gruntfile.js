@@ -20,14 +20,14 @@ module.exports = function(grunt) {
         },
         files: {
           'app/assets/javascripts/templates/template.js':
-            [ 'app/assets/javascripts/templates/*.mustache' ]
+            [ 'app/assets/javascripts/templates/**/*.mustache' ]
         }
       }
     },
 
     watch: {
       hogan_precompile: {
-        files: ['app/assets/javascripts/templates/*.mustache'],
+        files: ['app/assets/javascripts/templates/**/*.mustache'],
         tasks: ['hogan:precompile']
       }
     }
