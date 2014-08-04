@@ -15,5 +15,6 @@
 //= require bootstrap-sprockets
 //= require lodash
 //= require backbone
+//= require hogan
 //= require todos
 //= require_tree .
