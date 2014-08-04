@@ -11,10 +11,10 @@ module.exports = function(grunt) {
       precompile: {
         options: {
           prettify: true,
-          namespace: "Templates",
+          namespace: "JST",
           defaultName: function(filename) {
             filename = filename.replace(/app\/assets\/javascripts\/templates\//g, '');
-            return filename.replace(/\//g, '_').split(".")[0];
+            return filename.split(".")[0];
           },
           amdWrapper: false
         },
