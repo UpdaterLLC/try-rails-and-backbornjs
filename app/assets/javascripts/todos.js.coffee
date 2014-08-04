@@ -19,3 +19,6 @@ window['todos#index'] = (data) ->
 
 window['todos#show'] = (data) ->
   # and here
+
+$ =>
+  @Todos.init()
