@@ -30,3 +30,6 @@ config/secrets.yml
 
 # precompiled assets
 public/assets
+
+# node
+node_modules

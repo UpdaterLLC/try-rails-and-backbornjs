@@ -1,0 +1,16 @@
+{
+  "name": "try-rails-and-backbornjs",
+  "version": "0.1.0",
+  "description": "demo project, use with rails and backborn.js",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "sato1043@gmail.com",
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-hogan": "~0.2.3"
+  }
+}

@@ -16,6 +16,7 @@ application up and running.
 * rails 4.1.4
 * postgresql 9.3
 * rspec
+* node.js 0.10.25 and npm 1.3.10
 
 and developing with Rubymine 6.3.3.
 
@@ -29,6 +30,18 @@ bundle install
 
     $ cd try-rails-and-backbornjs
     $ bundle install --path vender/bundle
+
+developing purpose
+
+    $ sudo apt-get install nodejs npm
+    $ sudo ln -s `which nodejs` /usr/bin/node
+        # but you must clarify that you don't have "/usr/bin/node"
+        # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=614907#108
+    $ sudo npm install -g grunt-cli grunt-devtools
+    $ npm install
+
+check 'grunt' command to run tasks from terminal.
+and rubymine has own grunt tool from [Tools] - [Open Grunt Console].
 
 
 # Database initialization
