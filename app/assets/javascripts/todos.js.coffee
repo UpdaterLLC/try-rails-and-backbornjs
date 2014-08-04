@@ -1,7 +1,7 @@
 #= require_self
-#= require_tree ./routers
 #= require_tree ./models
 #= require_tree ./views
+#= require app_router
 
 'use strict'
 

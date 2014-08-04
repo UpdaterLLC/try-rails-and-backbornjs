@@ -8,3 +8,5 @@ describe 'Todos', () ->
     expect(t.Views).not.toBeNull()
     expect(t.Views.Todos).not.toBeNull()
     expect(t.Routers).not.toBeNull()
+  it 'can init', () ->
+    t.init()
