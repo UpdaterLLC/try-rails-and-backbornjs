@@ -16,5 +16,7 @@
 //= require lodash
 //= require backbone
 //= require hogan
+//= require moment
+//= require datatables
 //= require todos
 //= require_tree .

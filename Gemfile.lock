@@ -107,7 +107,10 @@ GEM
       sprockets-rails (~> 2.0)
     rails-assets-backbone (1.1.2)
       rails-assets-underscore (>= 1.5.0)
+    rails-assets-datatables (1.10.2)
+      rails-assets-jquery (>= 1.7.0)
     rails-assets-hogan (3.0.2)
+    rails-assets-jquery (2.1.1)
     rails-assets-lodash (2.4.1)
     rails-assets-moment (2.8.1)
     rails-assets-moment-timezone (0.2.1)
@@ -198,6 +201,7 @@ DEPENDENCIES
   pluggable_js (~> 2.0.0)
   rails (= 4.1.4)
   rails-assets-backbone
+  rails-assets-datatables
   rails-assets-hogan
   rails-assets-lodash
   rails-assets-moment

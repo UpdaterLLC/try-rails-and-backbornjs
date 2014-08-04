@@ -37,6 +37,7 @@ gem 'rails-assets-backbone'
 gem 'rails-assets-moment'
 gem 'rails-assets-moment-timezone'
 gem 'rails-assets-hogan'
+gem 'rails-assets-datatables'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
