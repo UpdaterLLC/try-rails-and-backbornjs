@@ -18,5 +18,6 @@
 //= require hogan
 //= require moment
 //= require datatables
+//= require dataTables.bootstrap
 //= require todos
 //= require_tree .
