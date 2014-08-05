@@ -6,7 +6,7 @@ t.Models.Todo = Backbone.Model.extend
   idAttribute: 'id'
 
   defaults: {
-    'what'    : undefined
+    'what'    : '(fill in what to do)'
     'urgency' : 3
     'priority': 3
   }

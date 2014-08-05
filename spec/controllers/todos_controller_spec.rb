@@ -12,8 +12,7 @@ RSpec.describe TodosController, :type => :controller do
     it 'responds todos json' do
       json = JSON[response.body]
       expect(json).not_to be_nil
-      expect(json['todos']).not_to be_nil
-      expect(json['todos']).to be_kind_of(Array)
+      expect(json).to be_kind_of(Array)
     end
   end
 
@@ -26,25 +25,39 @@ RSpec.describe TodosController, :type => :controller do
     it 'responds todo json' do
       json = JSON[response.body]
       expect(json).not_to be_nil
-      expect(json['todo']).not_to be_nil
-      expect(json['todo']['id']).to be request.filtered_parameters['id'].to_i
-      expect { Todo.find(json['todo']['id']) } .not_to raise_exception
+      expect(json['id']).to be request.filtered_parameters['id'].to_i
+      expect { Todo.find(json['id']) } .not_to raise_exception
     end
   end
 
   describe 'PATCH update' do
     before do
       object = FactoryGirl.create :todo
-      patch :update, {format: 'json', id: object.id, todo: {what:'patched what!?'}}
+      patch :update, {format: 'json', id: object.id, what:'patched what!?'}
     end
     it { should respond_with(200) }
     it 'responds todo json which updated' do
       json = JSON[response.body]
       expect(json).not_to be_nil
-      expect(json['todo']).not_to be_nil
-      expect(json['todo']['id']).to be request.filtered_parameters['id'].to_i
-      expect { Todo.find(json['todo']['id']) } .not_to raise_exception
-      expect(json['todo']['what']).to eq 'patched what!?'
+      expect(json['id']).to be request.filtered_parameters['id'].to_i
+      expect { Todo.find(json['id']) } .not_to raise_exception
+      expect(json['what']).to eq 'patched what!?'
+    end
+  end
+
+  describe 'POST create' do
+    before do
+      t = Todo.new what:'try to create', urgency:3, priority:3
+      json = JSON[t.to_json]
+      json['format'] = 'json'
+      post :create, json
+    end
+    it { should respond_with(200) }
+    it 'responds todo json which created' do
+      json = JSON[response.body]
+      expect(json).not_to be_nil
+      expect { Todo.find(json['id']) } .not_to raise_exception
+      expect(json['what']).to eq 'try to create'
     end
   end
 
@@ -57,9 +70,8 @@ RSpec.describe TodosController, :type => :controller do
     it 'responds todo json which removed' do
       json = JSON[response.body]
       expect(json).not_to be_nil
-      expect(json['todo']).not_to be_nil
-      expect(json['todo']['id']).to be request.filtered_parameters['id'].to_i
-      expect { Todo.find(json['todo']['id']) } .to raise_exception
+      expect(json['id']).to be request.filtered_parameters['id'].to_i
+      expect { Todo.find(json['id']) } .to raise_exception
     end
   end
 
