@@ -18,22 +18,30 @@ t.Views.Todos.Index = Backbone.View.extend
   render: ->
     @$el.html(@template.render())
     @datatable = $('#data-list',@$el).DataTable()
+    $('#data-list_filter',@$el).css('display','none')
+
     $('#data-list tbody',@$el).on 'click', 'tr', () ->
       $(this).toggleClass('selected')
-#    $('#data-list thead th',@$el).each () ->
-#      title = $(this).text();
-#      $(this).html( title+'<br /><input type="text" placeholder="Search '+title+'" style="width:60%" />' )
-#      $('input',this).click (e)-> e.preventDefault()
-#    table = @datatable
-#    table.columns().eq(0).each (colIdx) ->
-#      $('input', table.column(colIdx).header()).on 'keyup change', _.debounce =>
-#        table
-#          .column(colIdx)
-#          .search(@value)
-#          .draw()
-#        return
-#      , 300
-#      return
+
+    $('#data-list thead th',@$el).each () ->
+      $this = $(@)
+      title = $this.text();
+      $this.html( title+'<br /><input type="text" placeholder="Search '+title+'" style="width:80%" />' )
+      $('input',$this).unbind()
+      return
+    table = @datatable
+    table.columns().eq(0).each (colIdx) ->
+      $('input', table.column(colIdx).header()).on 'click', (e) ->
+        e.preventDefault()
+        return false
+      $('input', table.column(colIdx).header()).on 'keyup change', _.debounce ->
+        table
+          .column(colIdx)
+          .search(@value)
+          .draw()
+        return
+      , 300
+      return
 
     if @collection.length != 0
       @collection.each (todo) =>
@@ -43,6 +51,7 @@ t.Views.Todos.Index = Backbone.View.extend
           todo.get('priority'),
           todo.get('what'),
         ] ).draw();
+        return
     this
 
   events: {
